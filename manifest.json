@@ -1,0 +1,42 @@
+{
+  "manifest_version": 3,
+  "name": "StreamSniffer Pro",
+  "version": "1.0.0",
+  "description": "Gelişmiş HLS/DASH Akış Yakalayıcı, Çok Kanallı İndirme ve Medya Analiz Eklentisi",
+  "permissions": [
+    "webRequest",
+    "declarativeNetRequest",
+    "storage",
+    "downloads",
+    "offscreen",
+    "scripting"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["injected-interceptor.js"],
+      "run_at": "document_start",
+      "all_frames": true,
+      "match_about_blank": true,
+      "world": "MAIN"
+    },
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content-bridge.js"],
+      "run_at": "document_start",
+      "all_frames": true,
+      "match_about_blank": true
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "StreamSniffer Pro"
+  }
+}

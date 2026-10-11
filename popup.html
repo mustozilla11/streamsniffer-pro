@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <title>StreamSniffer Pro</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="app-container">
+    <header class="app-header">
+      <div class="logo-group">
+        <div class="logo-icon">SSP</div>
+        <h1>StreamSniffer</h1>
+      </div>
+      <div class="badge-pill" id="mediaCountPill">0 Medya</div>
+    </header>
+
+    <main class="content-body">
+      <!-- Aktif İndirme Paneli (Varsa gösterilir) -->
+      <section id="downloadProgressSection" class="download-section hidden">
+        <div class="download-header">
+          <span class="download-title" id="downloadFilename">İndiriliyor...</span>
+          <button id="cancelDownloadBtn" class="btn-cancel">İptal</button>
+        </div>
+        <div class="progress-bar-container">
+          <div class="progress-bar-fill" id="progressBarFill"></div>
+        </div>
+        <div class="download-stats">
+          <span id="statPercent">0%</span>
+          <span id="statSegments">0 / 0 parça</span>
+          <span id="statSpeed">0.0 MB/s</span>
+          <span id="statEta">Kalan: --</span>
+        </div>
+      </section>
+
+      <!-- Yakalanan Medyalar Listesi -->
+      <section class="media-list-section">
+        <div class="section-title">Yakalanan Medya Akışları</div>
+        <div id="mediaListContainer" class="media-list">
+          <div class="empty-state">
+            <p>Bu sayfada henüz yakalanan medya yok.</p>
+            <small>Video oynatıldığında otomatik olarak burada görünecektir.</small>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="app-footer">
+      <span>Zırhlı Çift Katmanlı Sniffer • MV3</span>
+    </footer>
+  </div>
+
+  <script type="module" src="popup.js"></script>
+</body>
+</html>
